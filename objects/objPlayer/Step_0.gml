@@ -21,7 +21,7 @@ turboCooldown = 0;
 
 // ACCELERATION:
 // Accelerate when holding keySpeedUp:
-if(speed < maxSpeed && keySpeedUp && !keySlowDown){
+if(speed <= maxSpeed && keySpeedUp && !keySlowDown){
 	speed = speed + acceleration;
 	isAccelerating = true;
 } else {
@@ -40,21 +40,20 @@ if(isAccelerating){
 	// Slowly lose speed when not accelerating:
 	if(speed > 0){
 		speed = speed - slowingModifier;	
-		// Slow down when max speed was somehow exceeded:
-		if(speed > maxSpeed){
-			speed = speed - 0.05	
-		}
 	}
 	// Stop in case speed is negative.
 	if(speed < 0){
 		speed = 0;	
 	}
 }
-
+// Slow down when max speed was somehow exceeded:
+if(speed > maxSpeed){
+	speed = speed - 0.05	
+}
 
 // TURBO:
 // Press keyTurbo to accelerate even more!
-if(keyTurbo && turboCooldown == 0 && speed <= maxSpeed){
+if(keyTurbo && turboCooldown == 0 && speed <= maxSpeed && !keySlowDown){
 	show_debug_message("Turbo ON!");
 	speed = speed + turboModifier;
 }
@@ -62,7 +61,16 @@ if(turboCooldown > 0){
 	turboCooldown = turboCooldown - 1;	
 }
 
-
+// SLOWING DOWN:
+// Slow down when pressing keySlowDown:
+if(keySlowDown){
+	if(speed > 0){
+		speed = speed - (slowingModifier * 10);	
+	}
+	if(speed < 0){
+		speed = 0;	
+	}
+}
 
 // TURNING:
 // Turn left when pressing keyLeft:
@@ -74,18 +82,6 @@ if(keyRight && !keyLeft){
 	direction = direction - turnSpeed;
 }
 image_angle = direction;
-
-	
-// SLOWING DOWN:
-// Slow down when pressing keySlowDown:
-if(keySlowDown){
-	if(speed > 0){
-		speed = speed - (slowingModifier * 10);	
-	}
-	if(speed < 0){
-		speed = 0;	
-	}
-}
 
 #endregion
 
