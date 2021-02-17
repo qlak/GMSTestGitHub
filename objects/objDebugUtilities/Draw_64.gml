@@ -25,6 +25,9 @@ if(shouldShowDebugInfo){
 	draw_set_alpha(0.85);
 	draw_text(textMargin, textGap * 6, "FPS = " + string(fps));
 	
+	draw_text(headerMargin, textGap * 7, "PLAYER DEBUG INFO:");
+	draw_text(textMargin, textGap * 8, "ACCELERATION = " + string(objPlayer.acceleration));
+	draw_text(textMargin, textGap * 9, "IS ACCELERATING = " + string(objPlayer.isAccelerating == 1 ? "True" : "False"));
 	
 	// Get back to normal draw mode:
 	draw_set_colour(c_white);
