@@ -4,7 +4,6 @@
 hp = 100;
 
 turnSpeed = 2;
-
 maxSpeed = 8;
 acceleration = 0;
 accelerationModifier = 0.001;
