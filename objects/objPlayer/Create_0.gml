@@ -22,6 +22,7 @@ turboCooldown = 5 * room_speed;
 #endregion
 
 #region FLAGS:
+shouldResetCooldowns = true;
 isPlayerAlive = true;
 isAccelerating = false;
 

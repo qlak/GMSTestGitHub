@@ -10,13 +10,6 @@ keyTurbo = keyboard_check_pressed(vk_space);
 
 #endregion
 
-#region COOLDOWNS:
-
-// Reset Cooldowns:
-turboCooldown = 0;
-
-#endregion
-
 #region MOVEMENT:
 
 // ACCELERATION:
