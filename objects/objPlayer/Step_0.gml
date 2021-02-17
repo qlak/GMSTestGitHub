@@ -40,7 +40,12 @@ if(isAccelerating){
 	// Slowly lose speed when not accelerating:
 	if(speed > 0){
 		speed = speed - slowingModifier;	
+		// Slow down when max speed was somehow exceeded:
+		if(speed > maxSpeed){
+			speed = speed - 0.05	
+		}
 	}
+	// Stop in case speed is negative.
 	if(speed < 0){
 		speed = 0;	
 	}
@@ -56,10 +61,7 @@ if(keyTurbo && turboCooldown == 0 && speed <= maxSpeed){
 if(turboCooldown > 0){
 	turboCooldown = turboCooldown - 1;	
 }
-// Slow down when exceeded max speed:
-if(speed > maxSpeed){
-	speed = speed - 0.05	
-}
+
 
 
 // TURNING:
