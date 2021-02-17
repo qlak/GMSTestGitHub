@@ -5,12 +5,11 @@ hp = 100;
 
 turnSpeed = 2;
 
-maxSpeed = 5;
+maxSpeed = 8;
 acceleration = 0;
 accelerationModifier = 0.001;
 maxAcceleration = 0.4;
 slowingModifier = 0.004;
-
 
 
 

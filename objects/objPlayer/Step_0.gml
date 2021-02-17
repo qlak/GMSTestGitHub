@@ -6,6 +6,7 @@ keyLeft = keyboard_check(vk_left) || keyboard_check(ord("A"));
 keyRight = keyboard_check(vk_right) || keyboard_check(ord("D"));
 keySpeedUp = keyboard_check(vk_up) || keyboard_check(ord("W"));
 keySlowDown = keyboard_check(vk_down) || keyboard_check(ord("S"));
+keyTurbo = keyboard_check_pressed(vk_space);
 
 #endregion
 
@@ -24,8 +25,15 @@ if(speed < maxSpeed && keySpeedUp && !keySlowDown){
 if(isAccelerating){
 	// The longer hold of keySpeedUp the stronger acceleration:
 	if(acceleration <= maxAcceleration){
-		acceleration = acceleration + accelerationModifier;	
+		//Turbo to accelerate even more!
+		if(keyTurbo){
+			show_debug_message("Turbo ON!");
+			acceleration++;
+		}
+		acceleration += accelerationModifier;	
 	}
+	
+	
 } else {
 	if(acceleration > 0){
 		acceleration = 0;
@@ -38,6 +46,9 @@ if(isAccelerating){
 		speed = 0;	
 	}
 }
+
+
+
 
 // TURNING:
 // Turn left when pressing keyLeft:
