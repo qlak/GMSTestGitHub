@@ -10,12 +10,14 @@ acceleration = 0;
 accelerationModifier = 0.001;
 maxAcceleration = 0.4;
 slowingModifier = 0.004;
-
+turboModifier = 5;
 
 
 #endregion
 
 #region COUNTERS:
+turboCooldown = 5 * room_speed;
+
 
 #endregion
 

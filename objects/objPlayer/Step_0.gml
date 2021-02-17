@@ -10,6 +10,12 @@ keyTurbo = keyboard_check_pressed(vk_space);
 
 #endregion
 
+#region COOLDOWNS:
+
+// Reset Cooldowns:
+turboCooldown = 0;
+
+#endregion
 
 #region MOVEMENT:
 
@@ -25,15 +31,8 @@ if(speed < maxSpeed && keySpeedUp && !keySlowDown){
 if(isAccelerating){
 	// The longer hold of keySpeedUp the stronger acceleration:
 	if(acceleration <= maxAcceleration){
-		//Turbo to accelerate even more!
-		if(keyTurbo){
-			show_debug_message("Turbo ON!");
-			acceleration++;
-		}
 		acceleration += accelerationModifier;	
 	}
-	
-	
 } else {
 	if(acceleration > 0){
 		acceleration = 0;
@@ -48,6 +47,19 @@ if(isAccelerating){
 }
 
 
+// TURBO:
+// Press keyTurbo to accelerate even more!
+if(keyTurbo && turboCooldown == 0 && speed <= maxSpeed){
+	show_debug_message("Turbo ON!");
+	speed = speed + turboModifier;
+}
+if(turboCooldown > 0){
+	turboCooldown = turboCooldown - 1;	
+}
+// Slow down when exceeded max speed:
+if(speed > maxSpeed){
+	speed = speed - 0.05	
+}
 
 
 // TURNING:
