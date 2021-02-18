@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprPlayer",
-    "path": "sprites/sprPlayer/sprPlayer.yy",
+    "name": "sprPlayerSpace",
+    "path": "sprites/sprPlayerSpace/sprPlayerSpace.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,17 +21,17 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"objPlayerSpace","path":"objects/objPlayerSpace/objPlayerSpace.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"objPlayerSpace","path":"objects/objPlayerSpace/objPlayerSpace.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Characters",
-    "path": "folders/Objects/Characters.yy",
+    "path": "folders/Objects/SpaceMode/Characters.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objPlayer",
+  "name": "objPlayerSpace",
   "tags": [],
   "resourceType": "GMObject",
 }

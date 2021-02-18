@@ -4,8 +4,10 @@
 headerMargin = 30;
 textMargin = 36;
 textGap = 16;
-#endregion
 
+currentGameMode = "SPACE";
+
+#endregion
 
 
 #region FLAGS:

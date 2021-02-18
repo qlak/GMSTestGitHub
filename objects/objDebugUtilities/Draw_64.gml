@@ -12,38 +12,67 @@ if(shouldShowDebugInfo){
 	draw_set_alpha(0.85);
 	draw_text(textMargin, textGap * 2, "F1: Debug Info");
 	draw_text(textMargin, textGap * 3, "F2: Fullscreen");
-	draw_text(textMargin, textGap * 4, "F4: Reset Room");
+	draw_text(textMargin, textGap * 4, "F3: Debug Gamemode");	
+	draw_text(textMargin, textGap * 5, "F4: Reset Room");
+	draw_text(textMargin, textGap * 6, "F5: Planets Room");	
+	draw_text(textMargin, textGap * 7, "F6: Space Room");
 	
 	
 	// Draw Separator:
 	draw_set_colour(c_gray);	
 	draw_set_alpha(0.70);
-	draw_text(headerMargin, textGap * 5, "- - - - - - - -");
+	draw_text(headerMargin, textGap * 8, "- - - - - - - -");
 
 
-	// Draw Debug Information on screen:
-	draw_set_colour(c_white);	
-	draw_set_alpha(1);
-	draw_text(headerMargin, textGap * 6, "DEBUG INFO:");
+	// Draw SPACE DEBUG MODE:
+	if(currentGameMode == "SPACE" && instance_exists(objPlayerSpace)){
+		
+		// Draw Debug Information on screen:
+		draw_set_colour(c_white);	
+		draw_set_alpha(1);
+		draw_text(headerMargin, textGap * 9, "SPACE DEBUG INFO:");
 	
-	draw_set_alpha(0.85);
-	draw_text(textMargin, textGap * 7, "FPS = " + string(fps));
-	
-	
-	// Draw Player Debug Information on screen:
-	draw_set_colour(c_white);	
-	draw_set_alpha(1);
-	draw_text(headerMargin, textGap * 8, "PLAYER DEBUG INFO:");
-	
-	draw_set_alpha(0.85);
-	draw_text(textMargin, textGap * 9, "ACCELERATION = " + string(objPlayer.acceleration));
-	draw_text(textMargin, textGap * 10, "IS ACCELERATING = " + string(objPlayer.isAccelerating == 1 ? "True" : "False"));
-	draw_text(textMargin, textGap * 11, "SPEED = " + string(objPlayer.speed));
-	draw_text(textMargin, textGap * 12, "TURBO COOLDOWN = " + string(objPlayer.turboCooldown / 60) + "s");	
+		draw_set_alpha(0.85);
+		draw_text(textMargin, textGap * 10, "FPS = " + string(fps));
 	
 	
-	// Get back to normal draw mode:
-	draw_set_colour(c_white);
-	draw_set_alpha(1);
+		// Draw Player Debug Information on screen:
+		draw_set_colour(c_white);	
+		draw_set_alpha(1);
+		draw_text(headerMargin, textGap * 11, "PLAYER DEBUG INFO:");
+	
+		draw_set_alpha(0.85);
+		draw_text(textMargin, textGap * 12, "ACCELERATION = " + string(objPlayerSpace.acceleration));
+		draw_text(textMargin, textGap * 13, "IS ACCELERATING = " + string(objPlayerSpace.isAccelerating == 1 ? "True" : "False"));
+		draw_text(textMargin, textGap * 14, "SPEED = " + string(objPlayerSpace.speed));
+		draw_text(textMargin, textGap * 15, "TURBO COOLDOWN = " + string(objPlayerSpace.turboCooldown / 60) + "s");	
+		
+		// Get back to normal draw mode:
+		draw_set_colour(c_white);
+		draw_set_alpha(1);
+	}
+	
+	// Draw PLANETS DEBUG MODE:
+	if(currentGameMode == "PLANETS" && instance_exists(objPlayerPlanets)){
+		// Draw Debug Information on screen:
+		draw_set_colour(c_white);	
+		draw_set_alpha(1);
+		draw_text(headerMargin, textGap * 9, "PLANETS DEBUG INFO:");
+	
+		draw_set_alpha(0.85);
+		draw_text(textMargin, textGap * 10, "FPS = " + string(fps));
+	
+	
+		// Draw Player Debug Information on screen:
+		draw_set_colour(c_white);	
+		draw_set_alpha(1);
+		draw_text(headerMargin, textGap * 11, "PLAYER DEBUG INFO:");
+
+	
+		// Get back to normal draw mode:
+		draw_set_colour(c_white);
+		draw_set_alpha(1);
+	}
+	
 }
 
