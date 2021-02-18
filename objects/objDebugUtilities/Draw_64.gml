@@ -39,7 +39,7 @@ if(shouldShowDebugInfo){
 	draw_text(textMargin, textGap * 9, "ACCELERATION = " + string(objPlayer.acceleration));
 	draw_text(textMargin, textGap * 10, "IS ACCELERATING = " + string(objPlayer.isAccelerating == 1 ? "True" : "False"));
 	draw_text(textMargin, textGap * 11, "SPEED = " + string(objPlayer.speed));
-	draw_text(textMargin, textGap * 12, "TURBO COOLDOWN = " + string(objPlayer.turboCooldown));	
+	draw_text(textMargin, textGap * 12, "TURBO COOLDOWN = " + string(objPlayer.turboCooldown / 60) + "s");	
 	
 	
 	// Get back to normal draw mode:

@@ -15,13 +15,12 @@ turboModifier = 5;
 #endregion
 
 #region COUNTERS:
-turboCooldown = 5 * room_speed;
-
+turboCooldownTime = 5 * room_speed;
+turboCooldown = 0;
 
 #endregion
 
 #region FLAGS:
-shouldResetCooldowns = true;
 isPlayerAlive = true;
 isAccelerating = false;
 

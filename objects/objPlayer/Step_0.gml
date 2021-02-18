@@ -49,6 +49,7 @@ if(speed > maxSpeed){
 if(keyTurbo && turboCooldown == 0 && speed <= maxSpeed && !keySlowDown){
 	show_debug_message("Turbo ON!");
 	speed = speed + turboModifier;
+	turboCooldown = turboCooldownTime;
 }
 if(turboCooldown > 0){
 	turboCooldown = turboCooldown - 1;	
