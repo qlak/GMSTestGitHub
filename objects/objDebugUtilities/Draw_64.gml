@@ -4,6 +4,7 @@
 // To add new line, choose proper Margin and add +1 to the textGap.
 if(shouldShowDebugInfo){
 	
+	#region // KEYBINDINGS:
 	// Draw Debug Keybindings on screen:
 	draw_set_colour(c_white);	
 	draw_set_alpha(1);
@@ -23,8 +24,10 @@ if(shouldShowDebugInfo){
 	draw_set_alpha(0.70);
 	draw_text(headerMargin, textGap * 8, "- - - - - - - -");
 
+	#endregion
 
-	// Draw SPACE DEBUG MODE:
+	#region // SPACE DEBUG MODE:
+	// Draw debug info in Space Game Mode:
 	if(currentGameMode == "SPACE" && instance_exists(objPlayerSpace)){
 		
 		// Draw Debug Information on screen:
@@ -47,12 +50,11 @@ if(shouldShowDebugInfo){
 		draw_text(textMargin, textGap * 14, "SPEED = " + string(objPlayerSpace.speed));
 		draw_text(textMargin, textGap * 15, "TURBO COOLDOWN = " + string(objPlayerSpace.turboCooldown / 60) + "s");	
 		
-		// Get back to normal draw mode:
-		draw_set_colour(c_white);
-		draw_set_alpha(1);
 	}
+	#endregion
 	
-	// Draw PLANETS DEBUG MODE:
+	#region // PLANETS DEBUG MODE:
+	// Draw debug info in Planets Game Mode:
 	if(currentGameMode == "PLANETS" && instance_exists(objPlayerPlanets)){
 		// Draw Debug Information on screen:
 		draw_set_colour(c_white);	
@@ -73,10 +75,13 @@ if(shouldShowDebugInfo){
 		draw_text(textMargin, textGap * 14, "IS JUMPING = " + string(objPlayerPlanets.isJumping == 1 ? "True" : "False"));
 		draw_text(textMargin, textGap * 15, "X AND Y COORDS = (" + string(objPlayerPlanets.x) + "," + string_format(objPlayerPlanets.y, 0, 0) + ")");
 		
-		// Get back to normal draw mode:
-		draw_set_colour(c_white);
-		draw_set_alpha(1);
 	}
+	
+	#endregion
+	
+	// Get back to normal draw mode:
+	draw_set_colour(c_white);
+	draw_set_alpha(1);
 	
 }
 
