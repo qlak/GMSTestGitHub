@@ -22,38 +22,62 @@ if(speed <= maxSpeed && keySpeedUp && !keySlowDown){
 }
 
 if(isAccelerating){
+	
 	// The longer hold of keySpeedUp the stronger acceleration:
 	if(acceleration <= maxAcceleration){
 		acceleration += accelerationModifier;	
 	}
+	
+	// Shoot out some objDust particles when starting to accelerate:
+	if(speed <= (maxSpeed / 3)){	
+		with(instance_create_layer(x, y, "EffectsBehindLayer", objDust)){
+			speed = random_range(0, 6);	
+			direction = (other.direction + 180) + irandom_range(-35, 35);
+		}
+	}
+	
 } else {
+	
 	if(acceleration > 0){
 		acceleration = 0;
 	}
+	
 	// Slowly lose speed when not accelerating:
 	if(speed > 0){
 		speed = speed - slowingModifier;	
 	}
+	
 	// Stop in case speed is negative.
 	if(speed < 0){
 		speed = 0;	
 	}
+	
 }
+
 // Slow down when max speed was somehow exceeded:
 if(speed > maxSpeed){
 	speed = speed - 0.05	
 }
 
+
 // TURBO:
 // Press keyTurbo to accelerate even more!
 if(keyTurbo && turboCooldown == 0 && speed <= maxSpeed && !keySlowDown){
 	show_debug_message("Turbo ON!");
+	
+	// Create objTurboBoost instance when starting Turbo:
+	with(instance_create_layer(x, y, "EffectsBehindLayer", objTurboBoost)){
+		speed = random_range(-2, -4);	
+		direction = other.direction + 180;
+	}
+	
 	speed = speed + turboModifier;
 	turboCooldown = turboCooldownTime;
 }
 if(turboCooldown > 0){
 	turboCooldown = turboCooldown - 1;	
 }
+
 
 // SLOWING DOWN:
 // Slow down when pressing keySlowDown:
@@ -65,6 +89,7 @@ if(keySlowDown){
 		speed = 0;	
 	}
 }
+
 
 // TURNING:
 // Turn left when pressing keyLeft:
