@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprPlayerPlanets",
-    "path": "sprites/sprPlayerPlanets/sprPlayerPlanets.yy",
+    "name": "sprWallPlanets",
+    "path": "sprites/sprWallPlanets/sprWallPlanets.yy",
   },
   "solid": false,
   "visible": true,
@@ -20,10 +20,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"objPlayerPlanets","path":"objects/objPlayerPlanets/objPlayerPlanets.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"objPlayerPlanets","path":"objects/objPlayerPlanets/objPlayerPlanets.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -31,7 +28,7 @@
     "path": "folders/Objects/PlanetsMode/Characters.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objPlayerPlanets",
+  "name": "objWallPlanets",
   "tags": [],
   "resourceType": "GMObject",
 }

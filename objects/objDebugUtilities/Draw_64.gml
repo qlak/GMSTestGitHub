@@ -67,8 +67,12 @@ if(shouldShowDebugInfo){
 		draw_set_colour(c_white);	
 		draw_set_alpha(1);
 		draw_text(headerMargin, textGap * 11, "PLAYER DEBUG INFO:");
-
-	
+		draw_set_alpha(0.85);
+		draw_text(textMargin, textGap * 12, "VERTICAL SPEED = " + string(objPlayerPlanets.verticalSpeed));
+		draw_text(textMargin, textGap * 13, "HORIZONTAL SPEED = " + string(objPlayerPlanets.horizontalSpeed));
+		draw_text(textMargin, textGap * 14, "IS JUMPING = " + string(objPlayerPlanets.isJumping == 1 ? "True" : "False"));
+		draw_text(textMargin, textGap * 15, "X AND Y COORDS = (" + string(objPlayerPlanets.x) + "," + string_format(objPlayerPlanets.y, 0, 0) + ")");
+		
 		// Get back to normal draw mode:
 		draw_set_colour(c_white);
 		draw_set_alpha(1);
