@@ -7,7 +7,8 @@ for(var i = 0; i < dustsNumber; i++){
 		
 		speed = other.dustSpeed;	
 		direction = other.direction + other.dustDirectionChange;
-		
+		image_blend = make_colour_hsv(random(255), random(255), random(255));
+
 	}
 	
 	// Change variables for the new objDust to be respawned:

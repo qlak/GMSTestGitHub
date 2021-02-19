@@ -1,9 +1,12 @@
 /// @description PREPARE
 
-viewWidth = 1920 / 6;
-viewHeight = 1080 / 6;
+zoomModifier = 3;
 
-windowScale = 3;
+baseViewWidth = 1920 / 2;
+baseViewHeight = 1080 / 2;
+viewWidth = baseViewWidth;
+viewHeight = baseViewHeight;
 
-window_set_size(viewWidth * windowScale, viewHeight * windowScale); 
+windowScale = 1;
 
+alarm[0] = 1;
