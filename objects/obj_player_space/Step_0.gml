@@ -104,3 +104,34 @@ image_angle = direction;
 
 #endregion
 
+
+
+#region UPDATE ALL THE PARTS:
+with(shipMidpartHigh){
+	direction = other.direction;
+	image_angle = other.direction;
+	speed = other.speed;
+}
+with(shipCockpit){
+	direction = other.direction;
+	image_angle = other.direction;
+	speed = other.speed;
+	
+}
+with(shipMidpartLow){
+	direction = other.direction;
+	image_angle = other.direction;
+	speed = other.speed;
+}
+with(shipWings){
+	direction = other.direction;
+	image_angle = other.direction;
+	speed = other.speed;
+}
+with(shipEngine){
+	direction = other.direction;
+	image_angle = other.direction;
+	speed = other.speed;
+}
+#endregion
+
