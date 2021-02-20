@@ -16,3 +16,8 @@ switch (room){
 if(room == room_space_001 || room == room_space_002){
 	room_goto(room_planets_001);	
 }
+
+
+// Change to proper Game Mode:
+global.currentGameMode = gameModes.PLANETS;
+

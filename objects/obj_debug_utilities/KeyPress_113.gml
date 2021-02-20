@@ -1,11 +1,11 @@
 /// @description TOGGLE FULL SCREEN
 
-if(!fullScreen){
+if(!global.isFullScreenOn){
 	window_set_fullscreen(true);
-		fullScreen = true;
-} else if(fullScreen){
+		global.isFullScreenOn = true;
+} else if(global.isFullScreenOn){
 	window_set_fullscreen(false);
-	fullScreen = false;	
+	global.isFullScreenOn = false;	
 }
 
 

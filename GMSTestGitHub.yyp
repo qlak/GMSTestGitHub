@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"obj_global_game_utilities","path":"objects/obj_global_game_utilities/obj_global_game_utilities.yy",},"order":1,},
     {"id":{"name":"room_space_002","path":"rooms/room_space_002/room_space_002.yy",},"order":1,},
     {"id":{"name":"spr_temporary_bg03","path":"sprites/spr_temporary_bg03/spr_temporary_bg03.yy",},"order":2,},
     {"id":{"name":"spr_temporary_bg02","path":"sprites/spr_temporary_bg02/spr_temporary_bg02.yy",},"order":0,},
@@ -8,6 +9,7 @@
     {"id":{"name":"obj_player_planets","path":"objects/obj_player_planets/obj_player_planets.yy",},"order":0,},
     {"id":{"name":"obj_debug_utilities","path":"objects/obj_debug_utilities/obj_debug_utilities.yy",},"order":0,},
     {"id":{"name":"spr_temporary_bg01","path":"sprites/spr_temporary_bg01/spr_temporary_bg01.yy",},"order":1,},
+    {"id":{"name":"scr_get_current_game_mode_name","path":"scripts/scr_get_current_game_mode_name/scr_get_current_game_mode_name.yy",},"order":0,},
     {"id":{"name":"spr_player_space","path":"sprites/spr_player_space/spr_player_space.yy",},"order":0,},
     {"id":{"name":"spr_dust","path":"sprites/spr_dust/spr_dust.yy",},"order":0,},
     {"id":{"name":"obj_player_space","path":"objects/obj_player_space/obj_player_space.yy",},"order":0,},
