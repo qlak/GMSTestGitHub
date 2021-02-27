@@ -10,7 +10,7 @@ keyTurbo = keyboard_check_pressed(vk_space);
 
 #endregion
 
-#region MOVEMENT:
+#region MOVEMENT - KEYBOARD:
 
 // ACCELERATION:
 // Accelerate when holding keySpeedUp:
@@ -21,23 +21,21 @@ if(speed <= maxSpeed && keySpeedUp && !keySlowDown){
 	isAccelerating = false;	
 }
 
+// When the ship is gaining speed:
 if(isAccelerating){
-	
 	// The longer hold of keySpeedUp the stronger acceleration:
 	if(acceleration <= maxAcceleration){
 		acceleration += accelerationModifier;	
 	}
 	
-	// Shoot out some objDust particles when starting to accelerate:
+	// Start Engine with more particles when starting acceleration:
 	if(speed <= (maxSpeed / 3)){	
-		with(instance_create_layer(x, y, "EffectsBehindLayer", obj_dust)){
-			speed = random_range(0, 6);	
-			direction = (other.direction + 180) + irandom_range(-35, 35);
-		}
+		shouldStartEngine = true;	
+	} else {
+		shouldStartEngine = false;	
 	}
-	
 } else {
-	
+	// Reset Acceleration if ship is not accelerating and somehow has value different than 0:
 	if(acceleration > 0){
 		acceleration = 0;
 	}
@@ -51,10 +49,9 @@ if(isAccelerating){
 	if(speed < 0){
 		speed = 0;	
 	}
-	
 }
 
-// Slow down when max speed was somehow exceeded:
+// Start slowing down when max speed was somehow exceeded:
 if(speed > maxSpeed){
 	speed = speed - 0.05	
 }
@@ -104,34 +101,88 @@ image_angle = direction;
 
 #endregion
 
+#region MOVEMENT - MOUSE:
+
+
+if(abs(angle_difference(point_direction(x, y, mouse_x, mouse_y), direction)) < aimDirectionThreshold){
+	
+	mouseX = mouse_x;
+	mouseY = mouse_y;
+	
+	currentAimDirection = angle_difference(point_direction(x, y, mouse_x, mouse_y), direction);
+	
+	canUpdateAimDirection = true;
+} else {
+	canUpdateAimDirection = false;	
+}
+
+
+#endregion
+
 
 
 #region UPDATE ALL THE PARTS:
 with(shipMidpartHigh){
-	direction = other.direction;
-	image_angle = other.direction;
-	speed = other.speed;
+	if(other.canUpdateAimDirection){
+		direction = point_direction(x, y, other.mouseX, other.mouseY);
+		image_angle = point_direction(x, y, other.mouseX, other.mouseY);
+	} else {
+		direction = other.direction + other.currentAimDirection;
+		image_angle = other.direction + other.currentAimDirection;
+	}
+	
+	x = other.x
+	y = other.y
 }
 with(shipCockpit){
 	direction = other.direction;
 	image_angle = other.direction;
-	speed = other.speed;
+	x = other.x
+	y = other.y
 	
 }
+with(shipWingsHigh){
+	direction = other.direction;
+	image_angle = other.direction;
+	x = other.x
+	y = other.y
+}
 with(shipMidpartLow){
+	if(other.canUpdateAimDirection){
+		direction = point_direction(x, y, other.mouseX, other.mouseY);
+		image_angle = point_direction(x, y, other.mouseX, other.mouseY);
+	} else {
+		direction = other.direction + other.currentAimDirection;
+		image_angle = other.direction + other.currentAimDirection;
+	}
+	
+	x = other.x
+	y = other.y
+}
+with(shipWingsLow){
 	direction = other.direction;
 	image_angle = other.direction;
-	speed = other.speed;
+	x = other.x
+	y = other.y
 }
-with(shipWings){
-	direction = other.direction;
+with(shipEngineHigh){
+	direction = other.direction + 180;
 	image_angle = other.direction;
-	speed = other.speed;
+	x = other.x
+	y = other.y
+	speed = other.speed
+	
+	shouldStartEngine = other.shouldStartEngine;
+	isAccelerating = other.isAccelerating;
+	
 }
-with(shipEngine){
-	direction = other.direction;
+with(shipEngineLow){
+	direction = other.direction + 180;
 	image_angle = other.direction;
-	speed = other.speed;
+	x = other.x
+	y = other.y
+	speed = other.speed
 }
+
 #endregion
 
