@@ -13,6 +13,10 @@ keyJump = keyboard_check_pressed(vk_space) || keyboard_check(ord("W")) || keyboa
 
 #endregion
 
+#region Functions
+
+#endregion
+
 
 
 #region Movement
@@ -57,3 +61,51 @@ if(keyDown && !place_meeting(x, y+1, obj_wall_planets)) {
 
 #endregion
 
+
+
+#region Animations
+
+if(isJumping) {
+
+	//IN AIR
+	
+	if(sign(verticalSpeed) < 0) {
+		
+		if(sprite_index != spr_player_planets_a) {
+			sprite_index = spr_player_planets_a;
+			image_index = 1;
+		}
+		
+			
+		if(image_index >= 3) {
+			image_index = 3;
+			image_speed = 0;
+			}
+		}
+	
+	// FALLING DOWN
+	else if(sign(verticalSpeed) >= 0 && !place_meeting(x, y+1, obj_wall_planets)){
+		if(image_index > 2 && sprite_index == spr_player_planets_a_falling) {
+			image_speed = 0;
+			}
+		else {
+			if(sprite_index != spr_player_planets_a_falling) {
+				sprite_index = spr_player_planets_a_falling;
+				image_index = 1;
+			}
+
+			image_speed = 1;
+		}
+	}
+
+}
+else {
+	image_speed = 1;
+	if (horizontalSpeed == 0) sprite_index = spr_player_planets; else sprite_index = spr_player_planets_running;
+}
+
+//facing left or right
+if(horizontalSpeed != 0) image_xscale = sign(horizontalSpeed);
+
+
+#endregion

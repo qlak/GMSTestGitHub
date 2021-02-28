@@ -1,11 +1,14 @@
 {
   "spriteId": {
-    "name": "spr_player_olanets",
-    "path": "sprites/spr_player_olanets/spr_player_olanets.yy",
+    "name": "spr_player_planets",
+    "path": "sprites/spr_player_planets/spr_player_planets.yy",
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_player_planets",
+    "path": "sprites/spr_player_planets/spr_player_planets.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,
