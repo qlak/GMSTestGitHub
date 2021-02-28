@@ -112,8 +112,10 @@ if(abs(angle_difference(point_direction(x, y, mouse_x, mouse_y), direction)) < a
 	currentAimDirection = angle_difference(point_direction(x, y, mouse_x, mouse_y), direction);
 	
 	canUpdateAimDirection = true;
+	canUpdateCrosshair = true;
 } else {
 	canUpdateAimDirection = false;	
+	canUpdateCrosshair = false;
 }
 
 
@@ -182,6 +184,14 @@ with(shipEngineLow){
 	x = other.x
 	y = other.y
 	speed = other.speed
+}
+
+with(shipCrosshair){
+	if(other.canUpdateCrosshair){
+		isInRange = true;
+	} else {
+		isInRange = false;
+	}
 }
 
 #endregion

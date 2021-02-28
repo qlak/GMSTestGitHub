@@ -25,6 +25,7 @@ shipMidpartLow = instance_create_layer(x, y, "PlayerMiddleLayer", obj_player_spa
 shipWingsLow = instance_create_layer(x, y, "PlayerMiddleLayer", obj_player_space_wings_low);
 shipEngineHigh = instance_create_layer(x, y, "PlayerMiddleLayer", obj_player_space_engine_high);
 shipEngineLow = instance_create_layer(x, y, "PlayerBackLayer", obj_player_space_engine_low);
+shipCrosshair = instance_create_layer(mouse_x, mouse_y, "PlayerFrontLayer", obj_cursor_spaceship);
 #endregion
 
 #region COUNTERS:
@@ -38,5 +39,6 @@ isPlayerAlive = true;
 isAccelerating = false;
 shouldStartEngine = false;
 canUpdateAimDirection = false;
+canUpdateCrosshair = false;
 
 #endregion
