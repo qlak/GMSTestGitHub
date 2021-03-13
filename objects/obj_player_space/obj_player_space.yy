@@ -1,10 +1,10 @@
 {
   "spriteId": {
-    "name": "spr_player_space",
-    "path": "sprites/spr_player_space/spr_player_space.yy",
+    "name": "spr_player_space_whole_ship",
+    "path": "sprites/spr_player_space_whole_ship/spr_player_space_whole_ship.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
